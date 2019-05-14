@@ -7,3 +7,6 @@ App.web_notifications = App.cable.subscriptions.create "WebNotificationsChannel"
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
+    _message = document.createElement('div')
+    document.querySelector('#messages').appendChild(_message)
+    _message.innerHTML = new Date().toLocaleTimeString() + '> ' + data.message;
